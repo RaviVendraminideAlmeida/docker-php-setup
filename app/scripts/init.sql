@@ -1,10 +1,7 @@
 -- Script de inicialização do banco startup_db
 
-USE startup_db;
-
--- Criar tabela de clientes
 CREATE TABLE IF NOT EXISTS clientes (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE NOT NULL,
     telefone VARCHAR(20),
@@ -14,7 +11,7 @@ CREATE TABLE IF NOT EXISTS clientes (
 
 -- Criar tabela de produtos
 CREATE TABLE IF NOT EXISTS produtos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     descricao TEXT,
     preco DECIMAL(10,2) NOT NULL,
@@ -22,7 +19,7 @@ CREATE TABLE IF NOT EXISTS produtos (
     data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Inserir dados de exemplo
+-- Inserir dados de exemplo (sintaxe compatível com PostgreSQL)
 INSERT INTO clientes (nome, email, telefone, endereco) VALUES
 ('João Silva', 'joao@email.com', '(11) 99999-9999', 'Rua das Flores, 123'),
 ('Maria Santos', 'maria@email.com', '(11) 88888-8888', 'Av. Principal, 456'),
